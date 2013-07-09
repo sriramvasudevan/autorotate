@@ -100,13 +100,11 @@ int main(int argc, char** argv)
     /// Show what you got
     imshow( "Source", magI);
 
-    imshow( "Rotated", final);
-
     Mat image;
     cv::GaussianBlur(final, image, cv::Size(0, 0), 3);
     cv::addWeighted(final, 1.5, image, -0.5, 0, image);
 
-    imshow("Sharp", image);
+    imshow("Rotated", image);
 
     waitKey(0);
     return 0;
