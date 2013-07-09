@@ -96,6 +96,7 @@ int main(int argc, char** argv)
     Mat final;
     /// Rotate the warped image
     warpAffine( magI, final, rot_mat, magI.size(), INTER_CUBIC, BORDER_CONSTANT, Scalar(255,255,255));
+    
 
     /// Show what you got
     imshow( "Source", magI);
@@ -103,8 +104,23 @@ int main(int argc, char** argv)
     Mat image;
     cv::GaussianBlur(final, image, cv::Size(0, 0), 3);
     cv::addWeighted(final, 1.5, image, -0.5, 0, image);
-
+    
+    /// Storing and showing the first image.
+    imwrite("tempstore/temp1.png",image);
     imshow("Rotated", image);
+
+    waitKey(0);
+    
+    rot_mat = getRotationMatrix2D( center, 180, 1.0);
+    warpAffine( image, final, rot_mat, image.size(), INTER_CUBIC, BORDER_CONSTANT, Scalar(255,255,255));
+    
+    cv::GaussianBlur(final, image, cv::Size(0, 0), 3);
+    cv::addWeighted(final, 1.5, image, -0.5, 0, image);
+    
+    /// Storing and showing the second image.
+    imwrite("tempstore/temp2.png",image);
+    imshow("Flip Rotated", image);
+    
 
     waitKey(0);
     return 0;
