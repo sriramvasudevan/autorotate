@@ -99,7 +99,7 @@ int main(int argc, char** argv)
     
 
     /// Show what you got
-    imshow( "Source", magI);
+    //imshow( "Source", magI);
 
     Mat image;
     cv::GaussianBlur(final, image, cv::Size(0, 0), 3);
@@ -107,7 +107,7 @@ int main(int argc, char** argv)
     
     /// Storing and showing the first image.
     imwrite("tempstore/temp1.png",image);
-    imshow("Rotated", image);
+    //imshow("Rotated", image);
 
     waitKey(0);
     
@@ -119,9 +119,9 @@ int main(int argc, char** argv)
     
     /// Storing and showing the second image.
     imwrite("tempstore/temp2.png",image);
-    imshow("Flip Rotated", image);
+    //imshow("Flip Rotated", image);
     
 
-    waitKey(0);
+    //waitKey(0);
     return 0;
 }
