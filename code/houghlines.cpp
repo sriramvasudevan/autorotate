@@ -106,7 +106,7 @@ int main(int argc, char** argv)
     
 
     /// Show what you got
-    imshow( "Source", magI);
+    //imshow( "Source", magI);
 
     Mat image;
     cv::GaussianBlur(final, image, cv::Size(0, 0), 3);
@@ -115,7 +115,7 @@ int main(int argc, char** argv)
     /// Storing and showing the first image.
     string tempname = "tempstore/temp1" + filename.substr(file_name.size()-4, filename.size());
     imwrite(tempname.c_str(), image);
-    imshow("Rotated", image);
+    //imshow("Rotated", image);
 
     waitKey(0);
     
@@ -128,9 +128,8 @@ int main(int argc, char** argv)
     /// Storing and showing the second image.
     tempname = "tempstore/temp2" + filename.substr(file_name.size()-4, filename.size());
     imwrite(tempname.c_str(), image);
-    imshow("Flip Rotated", image);
-    
+    //imshow("Flip Rotated", image);
 
-    waitKey(0);
+    //waitKey(0);
     return 0;
 }
