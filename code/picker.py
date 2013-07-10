@@ -46,6 +46,6 @@ else:
     sys.exit(0)
 
 if result[0] == "rightside-up":
-    print "tempstore/temp1.png"
+    print "tempstore/temp1.tiff"
 else:
-    print "tempstore/temp2.png"
+    print "tempstore/temp2.tiff"
