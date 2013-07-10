@@ -25,9 +25,16 @@ float calcMedian(vector<float> values, vector<float>::iterator begin_it, vector<
 
 int main(int argc, char** argv)
 {
-    const char* filename = argc >=2 ? argv[1] : "lena.jpg";
+    string filename;
+    if (argc>=2) {
+        filename = argv[1];
+    }
+    else {
+        cout<<"No image found.";
+        exit(-1);
+    }
 
-    Mat magI = imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
+    Mat magI = imread(filename.c_str(), CV_LOAD_IMAGE_GRAYSCALE);
     if( magI.empty())
         return -1;
 
@@ -106,7 +113,8 @@ int main(int argc, char** argv)
     cv::addWeighted(final, 1.5, image, -0.5, 0, image);
     
     /// Storing and showing the first image.
-    imwrite("tempstore/temp1.png",image);
+    string tempname = "tempstore/temp1" + filename.substr(file_name.size()-4, filename.size());
+    imwrite(tempname.c_str(), image);
     imshow("Rotated", image);
 
     waitKey(0);
@@ -118,7 +126,8 @@ int main(int argc, char** argv)
     cv::addWeighted(final, 1.5, image, -0.5, 0, image);
     
     /// Storing and showing the second image.
-    imwrite("tempstore/temp2.png",image);
+    tempname = "tempstore/temp2" + filename.substr(file_name.size()-4, filename.size());
+    imwrite(tempname.c_str(), image);
     imshow("Flip Rotated", image);
     
 
