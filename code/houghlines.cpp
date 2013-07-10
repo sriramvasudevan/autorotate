@@ -30,13 +30,15 @@ int main(int argc, char** argv)
         filename = argv[1];
     }
     else {
-        cout<<"No image found.";
+        cout<<"No image found."<<endl;
         exit(-1);
     }
 
     Mat magI = imread(filename.c_str(), CV_LOAD_IMAGE_GRAYSCALE);
-    if( magI.empty())
-        return -1;
+    if( magI.empty()) {
+        cout<<"No image found."<<endl;
+        exit(-1);
+    }
 
     Mat dst, color_dst;
 
@@ -113,7 +115,7 @@ int main(int argc, char** argv)
     cv::addWeighted(final, 1.5, image, -0.5, 0, image);
     
     /// Storing and showing the first image.
-    string tempname = "tempstore/temp1" + filename.substr(file_name.size()-4, filename.size());
+    string tempname = "tempstore/temp1" + filename.substr(filename.find_last_of("."));
     imwrite(tempname.c_str(), image);
     //imshow("Rotated", image);
 
@@ -126,7 +128,7 @@ int main(int argc, char** argv)
     cv::addWeighted(final, 1.5, image, -0.5, 0, image);
     
     /// Storing and showing the second image.
-    tempname = "tempstore/temp2" + filename.substr(file_name.size()-4, filename.size());
+    tempname = "tempstore/temp2" + filename.substr(filename.find_last_of("."));
     imwrite(tempname.c_str(), image);
     //imshow("Flip Rotated", image);
 
