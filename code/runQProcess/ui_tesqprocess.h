@@ -42,7 +42,10 @@ public:
     {
         if (tesQProcess->objectName().isEmpty())
             tesQProcess->setObjectName(QString::fromUtf8("tesQProcess"));
-        tesQProcess->resize(495, 338);
+        tesQProcess->resize(595, 408);
+        QPalette pal;
+        pal.setColor(QPalette::Window, Qt::gray);
+        tesQProcess->setPalette(pal);
         gridLayout = new QGridLayout(tesQProcess);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -53,11 +56,12 @@ public:
         label = new QLabel(tesQProcess);
         label->setObjectName(QString::fromUtf8("label"));
 
+
         horizontalLayout->addWidget(label);
 
         lineeCommand = new QLineEdit(tesQProcess);
         lineeCommand->setObjectName(QString::fromUtf8("lineeCommand"));
-
+        
         horizontalLayout->addWidget(lineeCommand);
 
 
@@ -80,6 +84,7 @@ public:
 
         txtReport = new QTextEdit(tesQProcess);
         txtReport->setObjectName(QString::fromUtf8("txtReport"));
+
 
         gridLayout->addWidget(txtReport, 2, 0, 1, 1);
 

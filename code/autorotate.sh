@@ -6,10 +6,15 @@ mkdir -p tempstore
 mkdir -p success
 mkdir -p failed
 
-
+numfil=$(find $1/ -type f | wc -l)
+echo "${numfil} potential files to analyze"
+id=0
 
 for f in "$1"/*
 do
+    
+    ((id++))
+    echo "${id} out of ${numfil}"
     ext=${f##*.}
     if [ "$ext" == "tif" ] || [ "$ext" == "tiff" ] || [ "$ext" == "jpg" ] || [ "$ext" == "jpeg" ] || [ "$ext" == "bmp" ] || [ "$ext" == "png" ] ; then
         echo "Found an image. Analyzing..."
