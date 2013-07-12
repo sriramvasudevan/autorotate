@@ -1,12 +1,23 @@
+#/bin/bash
+
+cd ~/autorotate/code/
+
 mkdir -p tempstore
 mkdir -p success
 mkdir -p failed
 
-for f in $1/*
+numfil=$(find $1/ -type f | wc -l)
+echo "${numfil} potential files to analyze"
+id=0
+
+for f in "$1"/*
 do
+    
+    ((id++))
+    echo "${id} out of ${numfil}"
     ext=${f##*.}
     if [ "$ext" == "tif" ] || [ "$ext" == "tiff" ] || [ "$ext" == "jpg" ] || [ "$ext" == "jpeg" ] || [ "$ext" == "bmp" ] || [ "$ext" == "png" ] ; then
-
+        echo "Found an image. Analyzing..."
         ./deskew "$f" > log.txt
 
         orientation=$(./detectflip tempstore/temp.$ext 2>&1)
@@ -20,6 +31,8 @@ do
         else
             mv tempstore/temp.$ext success/$(basename $f)
         fi
+    else
+        echo "Not an image. Moving on to the next file..."
     fi
 done
 
