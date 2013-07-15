@@ -18,6 +18,7 @@ private slots:
     void rightMessage();
     void wrongMessage();
     void on_btnProcess_clicked();
+    void on_btnProcess2_clicked();
 
 protected:
     void changeEvent(QEvent *e);

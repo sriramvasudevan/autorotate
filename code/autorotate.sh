@@ -1,12 +1,13 @@
 #/bin/bash
 
-cd ~/autorotate/code/
+rootdir="$1"/../../code/
 
+cd $rootdir
 mkdir -p tempstore
 mkdir -p success
 mkdir -p failed
 
-numfil=$(find $1/ -maxdepth 1 -type f | wc -l)
+numfil=$(find $1/ -maxdepth 1 -type f| wc -l)
 echo "${numfil} potential files to analyze"
 id=0
 echo "Deleting previous logs..."
@@ -14,6 +15,7 @@ rm log.txt
 
 for f in "$1"/*
 do
+
     if [ -f $f ]; then
         ((id++))
         echo "${id} out of ${numfil}"
@@ -41,3 +43,6 @@ done
 
 rm tempstore -rf
 python angledetect.py
+
+echo "Done. Successful autorotations saved to "$rootdir"success and failures saved to "$rootdir"failed"
+

@@ -1,5 +1,6 @@
 #include "tesqprocess.h"
 #include "ui_tesqprocess.h"
+#include <QtGui>
 
 tesQProcess::tesQProcess(QWidget *parent) :
     QDialog(parent),
@@ -32,12 +33,29 @@ void tesQProcess::on_btnProcess_clicked()
     /* clear text report */
     ui->txtReport->clear();
 
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
+                                             "~",
+                                             QFileDialog::ShowDirsOnly
+                                             | QFileDialog::DontResolveSymlinks);
+
+    if (dir != "") {
+        ui->lineeCommand->setText(dir);
+    }
+}
+
+void tesQProcess::on_btnProcess2_clicked()
+{
+    QString str_command;
+
+    /* clear text report */
+    ui->txtReport->clear();
+
     /* create string command and argument */
     str_command = ui->lineeCommand->text();
 
     /* create QProcess object */
     proc= new QProcess();
-    proc->start("/bin/bash", (QStringList() << "-c" << QString("~/autorotate/code/./autorotate.sh " + str_command)));
+    proc->start("/bin/bash", (QStringList() << "-c" << QString("~/GitHub/autorotate/code/./autorotate.sh " + str_command)));
 
     /* show output */
     connect(proc, SIGNAL(readyReadStandardOutput()),this, SLOT(rightMessage()) );

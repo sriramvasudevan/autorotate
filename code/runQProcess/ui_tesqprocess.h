@@ -35,7 +35,7 @@ public:
     QLineEdit *lineeCommand;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer;
-    QPushButton *btnProcess;
+    QPushButton *btnProcess, *btnProcess2;
     QTextEdit *txtReport;
 
     void setupUi(QDialog *tesQProcess)
@@ -80,6 +80,11 @@ public:
         horizontalLayout_3->addWidget(btnProcess);
 
 
+        btnProcess2 = new QPushButton(tesQProcess);
+        btnProcess2->setObjectName(QString::fromUtf8("btnProcess2"));
+
+        horizontalLayout_3->addWidget(btnProcess2);
+
         gridLayout->addLayout(horizontalLayout_3, 1, 0, 1, 1);
 
         txtReport = new QTextEdit(tesQProcess);
@@ -98,8 +103,9 @@ public:
     {
         tesQProcess->setWindowTitle(QApplication::translate("tesQProcess", "Semantic Text Miner", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("tesQProcess", "Image Directory :", 0, QApplication::UnicodeUTF8));
-        lineeCommand->setText(QApplication::translate("tesQProcess", "~/autorotate/all_images", 0, QApplication::UnicodeUTF8));
-        btnProcess->setText(QApplication::translate("tesQProcess", "Autorotate", 0, QApplication::UnicodeUTF8));
+        lineeCommand->setText(QApplication::translate("tesQProcess", "~/GitHub/autorotate/all_images", 0, QApplication::UnicodeUTF8));
+        btnProcess->setText(QApplication::translate("tesQProcess", "Browse", 0, QApplication::UnicodeUTF8));
+        btnProcess2->setText(QApplication::translate("tesQProcess", "Autorotate", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
