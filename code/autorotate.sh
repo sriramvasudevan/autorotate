@@ -14,8 +14,7 @@ id=0
 for f in "$1"/*
 do
 
-    if [ -f $f ]
-    then
+    if [ -f $f ]; then
         ((id++))
         echo "${id} out of ${numfil}"
         ext=${f##*.}
