@@ -9,6 +9,8 @@ mkdir -p failed
 numfil=$(find $1/ -maxdepth 1 -type f | wc -l)
 echo "${numfil} potential files to analyze"
 id=0
+echo "Deleting previous logs..."
+rm log.txt
 
 for f in "$1"/*
 do
@@ -18,7 +20,7 @@ do
         ext=${f##*.}
         if [ "$ext" == "tif" ] || [ "$ext" == "tiff" ] || [ "$ext" == "jpg" ] || [ "$ext" == "jpeg" ] || [ "$ext" == "bmp" ] || [ "$ext" == "png" ] ; then
             echo "Found an image. Analyzing..."
-            ./deskew "$f" > log.txt
+            ./deskew "$f" >> log.txt
 
             orientation=$(./detectflip tempstore/temp.$ext 2>&1)
 
@@ -38,3 +40,4 @@ do
 done
 
 rm tempstore -rf
+python angledetect.py

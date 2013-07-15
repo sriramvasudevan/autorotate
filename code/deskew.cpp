@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 
     sort(angles.begin(), angles.end());
     int angles_size = (int)distance(angles.begin(), angles.end());
-    cout<<angles_size<<endl;
+    //cout<<angles_size<<endl;
     float fqr, tqr;
     float anglestore[4];
     int i=0;
@@ -78,11 +78,11 @@ int main(int argc, char** argv)
     float iqr = tqr - fqr;
     lesserthan = fqr - 0.3*iqr;
     greaterthan = tqr + 0.3*iqr;
-    cout<<fqr<<endl;
-    cout<<tqr<<endl;
-    cout<<"less="<<lesserthan<<endl;
-    cout<<"great="<<greaterthan<<endl;
-    cout<<"last="<<*(angles.end()-1)<<endl;
+    //cout<<fqr<<endl;
+    //cout<<tqr<<endl;
+    //cout<<"less="<<lesserthan<<endl;
+    //cout<<"great="<<greaterthan<<endl;
+    //cout<<"last="<<*(angles.end()-1)<<endl;
 
     i=0;
     float sum = 0.0;
@@ -95,7 +95,7 @@ int main(int argc, char** argv)
 
     float meanangle = sum/(float)i;
 
-    cout<<"Mean = "<<meanangle<<endl;
+    cout<<meanangle<<'\n';
 
     Point center = Point( magI.cols/2, magI.rows/2 );
 
