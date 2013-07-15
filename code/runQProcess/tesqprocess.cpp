@@ -55,7 +55,7 @@ void tesQProcess::on_btnProcess2_clicked()
 
     /* create QProcess object */
     proc= new QProcess();
-    proc->start("/bin/bash", (QStringList() << "-c" << QString("~/GitHub/autorotate/code/./autorotate.sh " + str_command)));
+    proc->start("/bin/bash", (QStringList() << "-c" << QString("~/autorotate/code/./autorotate.sh " + str_command)));
 
     /* show output */
     connect(proc, SIGNAL(readyReadStandardOutput()),this, SLOT(rightMessage()) );
