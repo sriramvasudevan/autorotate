@@ -103,7 +103,7 @@ public:
     {
         tesQProcess->setWindowTitle(QApplication::translate("tesQProcess", "Semantic Text Miner", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("tesQProcess", "Image Directory :", 0, QApplication::UnicodeUTF8));
-        lineeCommand->setText(QApplication::translate("tesQProcess", "~/GitHub/autorotate/all_images", 0, QApplication::UnicodeUTF8));
+        lineeCommand->setText(QApplication::translate("tesQProcess", "~/autorotate/all_images", 0, QApplication::UnicodeUTF8));
         btnProcess->setText(QApplication::translate("tesQProcess", "Browse", 0, QApplication::UnicodeUTF8));
         btnProcess2->setText(QApplication::translate("tesQProcess", "Autorotate", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

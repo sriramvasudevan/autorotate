@@ -1,3 +1,5 @@
+import sys
+
 with open("log.txt", "r") as f:
     lines = f.readlines() # Read to end
 
@@ -10,6 +12,6 @@ for line in lines:
         notrot+=1
     else:
         rot+=1
-print "Number of files that had to be rotated was ",rot
-print "Number of files that were already rightside-up was ",notrot
+
+print rot
 
