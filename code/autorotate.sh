@@ -47,7 +47,7 @@ numstr=`expr $numfil - $numrot`
 numfail=$(find $rootdir/failed -maxdepth 1 -type f| wc -l)
 utctim=$(date +"%s")
 
-db/./db $numfil $numrot $numstr $numfail $utctim
+#db/./db $numfil $numrot $numstr $numfail $utctim
 
 echo "Done. Successful autorotations saved to "$rootdir"success and failures saved to "$rootdir"failed"
 
